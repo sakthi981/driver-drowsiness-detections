@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drowsiness Detection</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        video { border: 3px solid black; border-radius: 10px; }
+        button { padding: 10px 20px; font-size: 18px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Driver Drowsiness Detection</h1>
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+    <br><br>
+    <img id="videoFeed" src="{{ url_for('video_feed') }}" width="640" height="480">
+    
+    <script>
+        document.getElementById('startBtn').addEventListener('click', () => {
+            document.getElementById('videoFeed').src = "{{ url_for('video_feed') }}";
+        });
+
+        document.getElementById('stopBtn').addEventListener('click', () => {
+            document.getElementById('videoFeed').src = "";
+        });
+    </script>
+</body>
+</html>
